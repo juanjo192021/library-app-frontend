@@ -1,0 +1,9 @@
+.dropdown-menu[data-bs-popper]{
+  left: -62%;
+}
+.btn, .btn:first-child:active{
+  border: none;
+}
+.btn:hover {
+  border: none;
+}

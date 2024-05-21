@@ -1,0 +1,13 @@
+
+
+<div class="d-flex flex-column justify-content-between px-2 pt-2 text-white min-vh-100" [ngClass]="{'align-items-center': status, 'align-items-start':!status}">
+  <div>
+    <button (click)="isVisible()" class="btn bg-transparent text-white " [ngClass]="{'px-0': !status}">
+      <fa-icon [icon]="iconSideBar" />
+    </button>
+    <span [ngClass]="{'d-none': status, 'd-lg-inline': !status}">Biblioteca</span>
+  </div>
+  <library-shared-menu [status]="status" ></library-shared-menu>
+  <hr>
+  <library-shared-menu-user [status]="status"></library-shared-menu-user>
+</div>

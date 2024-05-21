@@ -1,0 +1,15 @@
+fa-icon{
+  font-size: 23px;
+}
+
+span{
+  margin-inline-start: 15px;
+}
+
+.btn, .btn:first-child:active{
+  border: none;
+}
+.btn:hover {
+  border: none;
+}
+
