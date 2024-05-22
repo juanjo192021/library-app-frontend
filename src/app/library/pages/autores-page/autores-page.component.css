@@ -1,0 +1,82 @@
+/* section{
+  background-color: rgb(17 24 39);
+} */
+
+#container-all{
+  max-width: 1280px;
+}
+
+section #subcontainer-all{
+  background-color: rgb(31 41 55);
+}
+
+/*Table: Inicio*/
+
+section table {
+  color: rgb(107 114 128);
+}
+
+table {
+  thead{
+    background-color: rgb(55 65 81);
+    color: rgb(156 163 175);
+    font-size: 14px;
+  }
+}
+
+thead tr th{
+
+  width: 0%;
+
+  a{
+    cursor: pointer;
+    color: rgb(156 163 175);
+  }
+}
+.item-column{
+
+  width: max-content;
+
+}
+
+tbody{
+  font-size: 15px;
+}
+
+/*Table: Fin*/
+
+/*Table: Before and After*/
+
+nav span{
+  color: rgb(156 163 175);
+}
+
+nav ul li{
+  background-color: rgb(31 41 55);
+}
+
+
+@media screen and (min-width: 768px){
+  /* Search Component: Inicia */
+  #container-search{
+    width: 50%;
+  }
+  #container-add-item{
+    width: auto;
+  }
+  /* Search Component: Inicia */
+  tbody tr{
+    border-color: rgb(120, 139, 11);
+  }
+
+}
+
+@media screen and (max-width: 768px){
+  #container-search{
+    width: 100%;
+  }
+  #container-add-item{
+    width: 100%;
+  }
+
+}

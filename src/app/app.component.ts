@@ -4,6 +4,7 @@ import { AuthStatus } from './auth/interfaces';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/services/auth.service';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent {
 
   public finishedAuthCheck= computed<boolean>(() =>{
     if ( this.authService.authStatus() === AuthStatus.checking){
+      delay(3000);
       return false;
     }
 
@@ -31,7 +33,8 @@ export class AppComponent {
       case AuthStatus.checking:
         return;
       case AuthStatus.authenticated:
-        this.router.navigateByUrl('/library/dashboard');
+        const redirect = localStorage.getItem('path')!;
+        this.router.navigateByUrl(redirect);
         return;
       case AuthStatus.notAuthenticated:
         this.router.navigateByUrl('/auth/login');

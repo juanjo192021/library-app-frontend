@@ -31,10 +31,15 @@ export class MenuOptionsComponent {
   public status: boolean = false;
   public menuSiderbar = [
     { label: 'Dashboard', icon: faChartPie, url: './dashboard' },
-    { label: 'Préstamos', icon: faRectangleList, url: './books-loan-page' },
-    { label: 'Libros', icon: faBook, url: './books-page' },
-    { label: 'Autores', icon: faLayerGroup, url: './autor-page' },
-    { label: 'Estudiantes', icon: faGraduationCap, url: './students-page' },
-    { label: 'Usuarios', icon: faUsers, url: './users-page' },
+    { label: 'Préstamos', icon: faRectangleList, url: './book-loans' },
+    { label: 'Libros', icon: faBook, url: './books' },
+    { label: 'Autores', icon: faLayerGroup, url: './autors' },
+    { label: 'Estudiantes', icon: faGraduationCap, url: './students' },
+    { label: 'Usuarios', icon: faUsers, url: './users' },
   ];
+
+  toRedirect(url:string){
+    const response: string = url.replace('./', '');
+    localStorage.setItem('path',`/library/${response}`);
+  }
 }

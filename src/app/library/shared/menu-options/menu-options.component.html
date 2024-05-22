@@ -2,7 +2,7 @@
 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start flex-nowrap" id="menu" style="height: 75vh;">
   @for (item of menuSiderbar; track $index) {
     <li class="nav-item mt-2 mb-2">
-        <a [routerLink]="item.url" class="nav-link align-middle px-0">
+        <a [routerLink]="item.url" class="nav-link align-middle px-0" (click)="toRedirect(item.url)">
           <fa-icon [icon]="item.icon"/>
           <span [ngClass]="{'d-none': status, 'd-lg-inline':!status}" >{{item.label}}</span>
         </a>
