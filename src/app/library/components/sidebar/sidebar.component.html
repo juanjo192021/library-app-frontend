@@ -1,6 +1,6 @@
 
 
-<div class="d-flex flex-column justify-content-between px-2 pt-2 text-white min-vh-100" [ngClass]="{'align-items-center': status, 'align-items-start':!status}">
+<div class="d-flex flex-column justify-content-between px-2 pt-3 text-white sticky-top" [ngClass]="{'align-items-center': status, 'align-items-start':!status}">
   <div>
     <button (click)="isVisible()" class="btn bg-transparent text-white " [ngClass]="{'px-0': !status}">
       <fa-icon [icon]="iconSideBar" />

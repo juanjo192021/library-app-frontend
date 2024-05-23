@@ -1,153 +1,246 @@
 <section class="p-1 p-sm-0">
-  <div class="mx-auto py-2 px-0" id="container-all">
-   <div class="position-relative shadow rounded-3 overflow-hidden" id="subcontainer-all">
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-2 mt-md-0 p-3">
-      <div id="container-search">
-        <form class="flex align-items-center">
-          <div>
-            <label for="exampleFormControlInput1" class="form-label d-none">Buscar</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Buscar">
-          </div>
-        </form>
-      </div>
-      <div class="d-flex flex-column flex-md-row mt-3 mt-md-0 align-items-stretch align-items-md-center justify-content-end flex-shrink-0" id="container-add-item">
-          <button type="button" class="btn btn-primary py-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <fa-icon [icon]="iconAddItem" class="me-1"></fa-icon>
+  <div
+    class="mx-auto py-2 px-0"
+    id="container-all">
+    <div
+      class="position-relative shadow rounded-3 overflow-hidden"
+      id="subcontainer-all">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-2 mt-md-0 p-3">
+        <div id="container-search">
+          <form class="flex align-items-center">
+            <div>
+              <label
+                for="exampleFormControlInput1"
+                class="form-label d-none">
+                Buscar
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Buscar">
+            </div>
+          </form>
+        </div>
+        <div
+          class="d-flex flex-column flex-md-row mt-3 mt-md-0 align-items-stretch align-items-md-center justify-content-end flex-shrink-0"
+          id="container-add-item">
+          <button
+            (click)="viewModalCreateUpdate(null)"
+            type="button"
+            class="btn btn-success py-1"
+            data-bs-toggle="modal"
+            data-bs-target="#modalCreateEdit">
+            <fa-icon
+              [icon]="iconAddItem"
+              class="me-1"></fa-icon>
             Nuevo
           </button>
+        </div>
       </div>
-    </div>
-    <div class="overflow-x-auto table-responsive-sm">
-      <!-- w-full text-sm text-left text-gray-500 dark:text-gray-400 -->
-      <table class="w-100 text-left">
-        <thead class="text-uppercase w-100">
-          <tr>
-              <th scope="col" class="px-3 py-2">
+      <div class="overflow-x-auto table-responsive-sm">
+        <!-- w-full text-sm text-left text-gray-500 dark:text-gray-400 -->
+        <table class="w-100 text-left">
+          <thead class="text-uppercase w-100">
+            <tr>
+              <th
+                scope="col"
+                class="px-3 py-2">
                 <div class="d-flex align-items-center item-column">
                   Nombre
                   <a (click)="changeOrder('nombre')">
-                    <fa-icon class="ms-2" [icon]="iconSort"></fa-icon>
+                    <fa-icon
+                      class="ms-2"
+                      [icon]="iconSort"></fa-icon>
                   </a>
                 </div>
               </th>
-              <th scope="col" class="px-3 py-2">
+              <th
+                scope="col"
+                class="px-3 py-2">
                 <div class="d-flex align-items-center  item-column">
                   Apellido Paterno
                   <a (click)="changeOrder('apellidoPaterno')">
-                    <fa-icon class="ms-2" [icon]="iconSort"></fa-icon>
+                    <fa-icon
+                      class="ms-2"
+                      [icon]="iconSort"></fa-icon>
                   </a>
                 </div>
               </th>
-              <th scope="col" class="px-3 py-2">
+              <th
+                scope="col"
+                class="px-3 py-2">
                 <div class="d-flex align-items-center  item-column">
                   Apellido Materno
                   <a (click)="changeOrder('apellidoMaterno')">
-                    <fa-icon class="ms-2" [icon]="iconSort"></fa-icon>
+                    <fa-icon
+                      class="ms-2"
+                      [icon]="iconSort"></fa-icon>
                   </a>
                 </div>
               </th>
-              <th scope="col" class="px-3 py-2">
+              <th
+                scope="col"
+                class="px-3 py-2">
                 <div class="d-flex align-items-center item-column">
                   Género
-                  <a (click)="changeOrder('nombre')">
-                    <fa-icon class="ms-2" [icon]="iconSort"></fa-icon>
+                  <a (click)="changeOrder('genero')">
+                    <fa-icon
+                      class="ms-2"
+                      [icon]="iconSort"></fa-icon>
                   </a>
                 </div>
               </th>
-              <th scope="col" class="px-3 py-2 text-center">
-                <div class="d-flex align-items-center justify-content-center">
-                  Acciones
-                </div>
+              <th
+                scope="col"
+                class="px-3 py-2 text-center">
+                <div class="d-flex align-items-center justify-content-center">Acciones</div>
               </th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (autor of autores | sortBy:orderBy:order  ; track $index){
-            <tr class="border-bottom">
-              <td class="px-3 py-2">
-                <div class="item-column">
-                  <span>{{autor.nombre}}</span>
-                </div>
-              </td>
-              <td class="px-3 py-2">
-                <div class="item-column">
-                  <span>{{autor.apellidoPaterno}}</span>
-                </div>
-              </td>
-              <td class="px-3 py-2">
-                <div class="item-column">
-                  <span>{{autor.apellidoMaterno}}</span>
-                </div>
-              </td>
-              <td class="px-3 py-2">
-                <div class="item-column">
-                  <span>{{autor.genero.nombre}}</span>
-                </div>
-              </td>
-              <td class="px-3 py-2 d-flex align-items-center justify-content-center">
-                <!-- class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" -->
-                  <button type="button" class="d-flex btn btn-primary py-1 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <fa-icon [icon]="iconEditItem" class="me-1"></fa-icon>
-                    Editar
-                  </button>
-                  <button type="button" class="d-flex btn btn-danger py-1" >
-                    <fa-icon [icon]="iconDeleteItem" class="me-1"></fa-icon>
-                    Eliminar
-                  </button>
-              </td>
             </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-    <nav class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-0 p-2">
-      <span class="text-sm fw-normal">
+          </thead>
+          <tbody>
+            @for (autor of autores | sortBy:orderBy:order  ; track $index){
+              <tr class="border-bottom">
+                <td class="px-3 py-2">
+                  <div class="item-column">
+                    <span>{{autor.nombre | titlecase}}</span>
+                  </div>
+                </td>
+                <td class="px-3 py-2">
+                  <div class="item-column">
+                    <span>{{autor.apellidoPaterno | titlecase}}</span>
+                  </div>
+                </td>
+                <td class="px-3 py-2">
+                  <div class="item-column">
+                    <span>{{autor.apellidoMaterno | titlecase}}</span>
+                  </div>
+                </td>
+                <td class="px-3 py-2">
+                  <div class="item-column">
+                    <span>{{autor.genero.nombre}}</span>
+                  </div>
+                </td>
+                <td class="px-3 py-2 d-flex align-items-center justify-content-center">
+                  <!-- class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" -->
+                    <button
+                      (click)="viewModalCreateUpdate(autores[$index])"
+                      type="button"
+                      class="d-flex btn btn-primary py-1 me-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalCreateEdit">
+                      <fa-icon [icon]="iconEditItem" class="me-1"></fa-icon>
+                      Editar
+                    </button>
+                    <button type="button" class="d-flex btn btn-danger py-1" >
+                      <fa-icon [icon]="iconDeleteItem" class="me-1"></fa-icon>
+                      Eliminar
+                    </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <nav class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-0 p-2">
+        <span class="text-sm fw-normal">
         Showing
-        <span class="fw-semibold text-white">1-10</span>
+          <span class="fw-semibold text-white">1-10</span>
         of
-        <span class="fw-semibold text-white">1000</span>
-      </span>
-      <ul class="list-group list-group-horizontal mt-2">
-        <li class="list-group-item">
-          <a href="#">
-            <fa-icon [icon]="iconBefore"></fa-icon>
-          </a>
-        </li>
-        <li class="list-group-item list-group-item-dark">1</li>
-        <li class="list-group-item list-group-item-dark">2</li>
-        <li class="list-group-item list-group-item-dark">3</li>
-        <li class="list-group-item list-group-item-dark">...</li>
-        <li class="list-group-item list-group-item-dark">
-          <a href="#">
-            <fa-icon [icon]="iconAfter"></fa-icon>
-          </a>
-        </li>
-      </ul>
-
-    </nav>
-   </div>
+          <span class="fw-semibold text-white">{{autores.length}}</span>
+        </span>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item">
+          <a href="#"><fa-icon [icon]="iconBefore"></fa-icon>
+            </a>
+          </li>
+          <li class="list-group-item list-group-item-dark">1</li>
+          <li class="list-group-item list-group-item-dark">2</li>
+          <li class="list-group-item list-group-item-dark">3</li>
+          <li class="list-group-item list-group-item-dark">...</li>
+          <li class="list-group-item list-group-item-dark">
+          <a href="#"><fa-icon [icon]="iconAfter"></fa-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </section>
 
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="modalCreateEdit"
+  tabindex="-1"
+  aria-labelledby="modalCreateEditLabel"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1
+          class="modal-title fs-5"
+          id="modalCreateEditLabel">{{title}} Auto</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="row">
+          <div class="col-6 mb-3">
+            <label for="txtNombre" class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" id="txtNombre">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="txtApellidoPaterno" class="form-label">Apellido Paterno</label>
+            <input formControlName="apellidoPaterno"type="text" class="form-control" id="txtApellidoPaterno">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="txtApellidoMaterno" class="form-label">Apellido Materno</label>
+            <input formControlName="apellidoMaterno" type="text" class="form-control" id="txtApellidoMaterno">
+          </div>
+          <!-- formArrayName="generos" -->
+          <div class="col-6 mb-3">
+            <label for="txtGenero" class="form-label">Género</label>
+            <!-- <div *ngFor="let item of generos.controls; let i = index">
+              <input [formControlName]="i" type="text" class="form-control"  >
+            </div> -->
+            <select formControlName="generos" class="form-select" aria-label="Default select example" id="txtGenero">
+              <option selected disabled value="0">--Seleccionar--</option>
+              @for (genero of generos; track $index) {
+                <option [value]="genero.id">{{genero.nombre}}</option>
+              }
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal">
+              Regresar
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary">
+              Guardar
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+      <span>Valid</span>
+      <pre>{{ myForm.valid | json }}</pre>
+      <br>
+
+      <span>Value</span>
+      <pre>{{ myForm.value | json }}</pre>
+      <br>
+
+      <!-- <span>Agregar Juego</span>
+      <pre>{{ newFavorite.valid | json }}</pre>
+      <pre>{{ newFavorite.value | json }}</pre> -->
     </div>
   </div>
 </div>
-
-
-

@@ -25,3 +25,7 @@
 ## Se instaló el siguiente paquete de node para crear la carpeta environments
 
 - Run `npm i dotenv --save-dev`, para creación de la carpeta environments ejecutar `npm run envs`.
+
+## Url del backend
+
+- `https://library-project-backend-production.up.railway.app/v1`

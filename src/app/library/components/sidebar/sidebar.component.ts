@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MenuOptionsComponent } from '../../shared/menu-options/menu-options.component';
+import { MenuOptionsComponent } from '../menu-options/menu-options.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChartPie, faRectangleList, faBook, faLayerGroup, faGraduationCap , faUsers, faGear, faRightFromBracket, faBars } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
-import { MenuUserComponent } from '../../shared/menu-user/menu-user.component';
+import { MenuUserComponent } from '../menu-user/menu-user.component';
 import { HttpClientModule } from '@angular/common/http';
 
 

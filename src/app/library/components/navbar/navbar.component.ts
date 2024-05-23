@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { MenuOptionsComponent } from '../../shared/menu-options/menu-options.component';
-import { MenuUserComponent } from '../../shared/menu-user/menu-user.component';
+import { MenuOptionsComponent } from '../menu-options/menu-options.component';
+import { MenuUserComponent } from '../menu-user/menu-user.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

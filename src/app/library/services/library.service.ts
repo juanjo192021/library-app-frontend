@@ -1,7 +1,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Autor } from '../interfaces';
+import { Autor, Genero } from '../interfaces';
 import { Observable, catchError, map, of, throwError } from 'rxjs';
 
 @Injectable({
@@ -32,6 +32,26 @@ export class LibraryService {
       map((autor) => {
         this._currentAutor.set(autor);
         return autor;
+      }),
+      catchError((error) => throwError(() => {
+              console.log(error.error)
+              return of(null);
+            }))
+    );
+  }
+
+  getLiteraryGenres(): Observable<Genero[]>{
+    const url: string = `${this.baseUrl}/generos/listar`;
+    const token = localStorage.getItem('token');
+
+
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`);
+
+    return this.httpClient.get<Genero[]>(url, {headers})
+    .pipe(
+      map((genero) => {
+        return genero;
       }),
       catchError((error) => throwError(() => {
               console.log(error.error)
