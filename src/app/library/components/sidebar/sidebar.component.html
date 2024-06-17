@@ -1,11 +1,11 @@
 
 
-<div class="d-flex flex-column justify-content-between px-2 pt-3 text-white sticky-top" [ngClass]="{'align-items-center': status, 'align-items-start':!status}">
+<div class="d-flex flex-column justify-content-between px-2 pt-3 text-white sticky-top" [ngClass]="{'align-items-center': status, 'align-items-start':!status}" style="min-height: 100vh">
   <div>
     <button (click)="isVisible()" class="btn bg-transparent text-white " [ngClass]="{'px-0': !status}">
       <fa-icon [icon]="iconSideBar" />
     </button>
-    <span [ngClass]="{'d-none': status, 'd-lg-inline': !status}">Biblioteca</span>
+    <img src="https://res.cloudinary.com/dhgkb17i4/image/upload/v1716534140/Library-Angular/Assets/pg6odbkv7x8rztvmedqs.png" [ngClass]="{'d-none': status, 'd-lg-inline': !status}" id="logo-library">
   </div>
   <library-shared-menu [status]="status" ></library-shared-menu>
   <hr>

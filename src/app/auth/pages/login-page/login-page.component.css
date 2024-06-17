@@ -1,0 +1,28 @@
+#container-login{
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  .section-image{
+    background-image: url('https://res.cloudinary.com/dhgkb17i4/image/upload/v1715125620/Library-Angular/Auth/login-desktop.jpg');
+    background-size: cover;
+  }
+  .section-form{
+    width: 40%;
+    margin: auto;
+    form{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  #container-login{
+    background-image: url('https://res.cloudinary.com/dhgkb17i4/image/upload/v1715122674/Library-Angular/Auth/dbpvtrqmvdc1vsa4zx9x.png');
+    background-size: contain;
+    .section-form{
+      width: 60%;
+    }
+  }
+}

@@ -47,7 +47,7 @@ export default class AutoresPageComponent implements OnInit {
     nombre: ['', [Validators.required]],
     apellidoPaterno: ['', [Validators.required]],
     apellidoMaterno: ['', [Validators.required]],
-    generos:['', Validators.required],
+    genero:['0', Validators.required],
   });
 
   // get generos() {
@@ -57,11 +57,13 @@ export default class AutoresPageComponent implements OnInit {
   ngOnInit(): void {
     this.libraryService
       .getAutores()
-      .subscribe((autores) => (this.autores = autores));
+      .subscribe((autores) => {
+        console.log({autores});
+        this.autores = autores});
 
     this.libraryService
       .getLiteraryGenres()
-      .subscribe((generos) => (this.generos = generos));
+      .subscribe((generos) => this.generos = generos);
 
       // this.libraryService
       // .getLiteraryGenres()
@@ -88,21 +90,21 @@ export default class AutoresPageComponent implements OnInit {
   }
 
   viewModalCreateUpdate(resp: Autor | null) {
-    if(resp === null) {
-      this.myForm.reset({generos: "0"});
-      this.title = 'Crear';
-      return
-    }
-    const autor = {
-      nombre: resp?.nombre,
-      apellidoPaterno: resp?.apellidoPaterno,
-      apellidoMaterno: resp?.apellidoMaterno,
-      generos: resp?.genero.id,
-    }
+    // if(resp === null) {
+    //   this.myForm.reset({generos: "0"});
+    //   this.title = 'Crear';
+    //   return
+    // }
+    // const autor = {
+    //   nombre: resp?.nombre,
+    //   apellidoPaterno: resp?.apellidoPaterno,
+    //   apellidoMaterno: resp?.apellidoMaterno,
+    //   generos: resp?.generos.id,
+    // }
 
-    console.log(autor);
-    this.myForm.reset(autor);
-    this.title = 'Editar';
+    // console.log(autor);
+    // this.myForm.reset(autor);
+    // this.title = 'Editar';
     //this.myForm.controls['nombre'].setValue = "aax";
   }
 }

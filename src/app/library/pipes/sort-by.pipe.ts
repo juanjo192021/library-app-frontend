@@ -24,10 +24,10 @@ export class SortByPipe implements PipeTransform {
         return order
           ? autores.sort((a, b) => (a.apellidoMaterno.toLocaleUpperCase() > b.apellidoMaterno.toLocaleUpperCase() ? 1 : -1))
           : autores.sort((a, b) => (a.apellidoMaterno.toLocaleUpperCase() < b.apellidoMaterno.toLocaleUpperCase() ? 1 : -1));
-      case 'genero':
-        return order
-          ? autores.sort((a, b) => (a.genero.nombre.toLocaleUpperCase() > b.genero.nombre.toLocaleUpperCase() ? 1 : -1))
-          : autores.sort((a, b) => (a.genero.nombre.toLocaleUpperCase() < b.genero.nombre.toLocaleUpperCase() ? 1 : -1));
+      // case 'generos':
+      //   return order
+      //     ? autores.sort((a, b) => (a.generos.nombre.toLocaleUpperCase() > b.generos.nombre.toLocaleUpperCase() ? 1 : -1))
+      //     : autores.sort((a, b) => (a.generos.nombre.toLocaleUpperCase() < b.generos.nombre.toLocaleUpperCase() ? 1 : -1));
       default:
         return autores;
     }

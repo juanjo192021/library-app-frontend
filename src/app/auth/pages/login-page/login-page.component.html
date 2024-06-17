@@ -1,21 +1,27 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      Login
-    </div>
-    <div class="card-body">
-      <form [formGroup]="myForm" (ngSubmit)="login()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+<div class="row h-100 justify-content-center align-items-center" id="container-login">
+  <div class="section-image col-6 d-none d-md-flex h-100"></div>
+  <!-- <div class="col-6 d-block d-md-none" style="background-image: url('https://res.cloudinary.com/dhgkb17i4/image/upload/v1715122674/Library-Angular/Auth/dbpvtrqmvdc1vsa4zx9x.png');"></div> -->
+  <div class="section-form col-12 col-md-6">
+    <div class="card border-0">
+      <div class="card-header justify-content-center align-self-center border-0">
+        <h1 class="fs-4 fw-bold">
+          Iniciar Sesión
+        </h1>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="myForm" (ngSubmit)="login()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+            <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary align-self-center">Ingresar</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -5,5 +5,5 @@ export interface Autor {
   nombre:          string;
   apellidoPaterno: string;
   apellidoMaterno: string;
-  genero:          Genero;
+  generos:         Genero[];
 }

@@ -84,7 +84,7 @@
                 class="px-3 py-2">
                 <div class="d-flex align-items-center item-column">
                   Género
-                  <a (click)="changeOrder('genero')">
+                  <a>
                     <fa-icon
                       class="ms-2"
                       [icon]="iconSort"></fa-icon>
@@ -118,7 +118,19 @@
                 </td>
                 <td class="px-3 py-2">
                   <div class="item-column">
-                    <span>{{autor.genero.nombre}}</span>
+                    <!-- <span>{{ autor.generos.map(g=> g.nombre).join(',')}}</span> -->
+                    <!-- {{ usuario.generos.map(g => g.nombre).join(', ') }} -->
+                    @for (genero of autor.generos; track $index) {
+
+                      @if($index === autor.generos.length - 1){
+                        <span>{{genero.nombre}}</span>
+
+                      }
+                      @if($index < autor.generos.length - 1){
+                        <span>{{genero.nombre}} , </span>
+
+                      }
+                    }
                   </div>
                 </td>
                 <td class="px-3 py-2 d-flex align-items-center justify-content-center">
@@ -207,10 +219,15 @@
             <!-- <div *ngFor="let item of generos.controls; let i = index">
               <input [formControlName]="i" type="text" class="form-control"  >
             </div> -->
-            <select formControlName="generos" class="form-select" aria-label="Default select example" id="txtGenero">
+            <select formControlName="genero" class="form-select" id="txtGenero" multiple>
               <option selected disabled value="0">--Seleccionar--</option>
               @for (genero of generos; track $index) {
-                <option [value]="genero.id">{{genero.nombre}}</option>
+                <option>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input"  [id]="'g'+genero.id" >
+                    <label [htmlFor]="'g'+genero.id" class="form-check-label">{{genero.nombre}}</label>
+                  </div>
+                </option>
               }
             </select>
           </div>
